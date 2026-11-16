@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Open Eyes eBusiness · Pilotage</title>
+<link rel="icon" href="data:,">
+<link rel="preload" href="assets/Inter.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="assets/Montserrat-700.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="assets/style.css?v=20261117a">
+</head>
+<body>
+<div class="demo"><div class="wrap"><b>Données d'exemple</b><span class="sep"> · </span><span>montants, acquéreurs et dossiers sont inventés ; seuls les programmes et leurs localités sont ceux d'Open Eyes eBusiness</span></div></div>
+
+<header class="masthead">
+  <div class="wrap mh">
+    <img src="assets/logo.png" alt="Open Eyes eBusiness" class="logo">
+    <div class="mh-txt">
+      <p class="eyebrow">Pilotage</p>
+      <p class="arrete">Situation au <span id="arrete"></span></p>
+    </div>
+  </div>
+</header>
+
+<nav class="filters" id="filters">
+  <div class="wrap fl">
+    <label>Période
+      <select id="f-per">
+        <option value="m">Mois en cours</option>
+        <option value="3">3 derniers mois</option>
+        <option value="12" selected>12 derniers mois</option>
+        <option value="ytd">Depuis janvier 2026</option>
+      </select>
+    </label>
+    <label>Programme
+      <select id="f-prog"><option value="all">Tous les programmes</option></select>
+    </label>
+    <label>Acquéreurs
+      <select id="f-cli">
+        <option value="all">Résidents et diaspora</option>
+        <option value="0">Résidents en Côte d'Ivoire</option>
+        <option value="1">Diaspora</option>
+      </select>
+    </label>
+  </div>
+</nav>
+
+<main class="wrap">
+  <section class="intro">
+    <h1 id="titre">Open Eyes eBusiness · Pilotage</h1>
+    <p id="phrase" class="lede"></p>
+  </section>
+
+  <section class="kpis" id="kpis"></section>
+
+  <section class="block">
+    <div class="bh"><span class="num">01</span><h2>Ventes et réservations</h2></div>
+    <div class="grid2">
+      <div class="card">
+        <p class="cap">Ventes signées par mois, sur 12 mois <span class="leg"><i class="sw r"></i>Résidents <i class="sw o"></i>Diaspora</span></p>
+        <div class="ch"><canvas id="c-ventes"></canvas></div>
+      </div>
+      <div class="card">
+        <p class="cap">D'où viennent les acquéreurs de la diaspora <span class="note" id="n-pays"></span></p>
+        <div class="bars" id="pays"></div>
+      </div>
+    </div>
+    <div class="card">
+      <p class="cap">Par programme, sur la période <span class="note">réservations : situation au jour</span></p>
+      <div class="tbl-wrap"><table class="tbl" id="t-prog"></table></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="bh"><span class="num">02</span><h2>Stock de lots et de logements</h2></div>
+    <div class="card">
+      <p class="cap">Lots et logements par programme <span class="leg"><i class="sw r"></i>Vendus <i class="sw o"></i>Réservés <i class="sw g"></i>Disponibles</span></p>
+      <div class="stock" id="stock"></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="bh"><span class="num">03</span><h2>Encaissements et retards</h2></div>
+    <div class="grid3" id="enc-k"></div>
+    <div class="grid2">
+      <div class="card">
+        <p class="cap">Versements des acquéreurs, par mois <span class="leg"><i class="sw r"></i>Encaissé <i class="sw d"></i>Attendu</span></p>
+        <div class="ch"><canvas id="c-enc"></canvas></div>
+      </div>
+      <div class="card">
+        <p class="cap">Échéances en retard, par ancienneté</p>
+        <div class="aged" id="aged"></div>
+        <p class="cap cap2">Relances à faire <span class="note">J+3, J+15, J+30</span></p>
+        <div class="tbl-wrap"><table class="tbl" id="t-ret"></table></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="bh"><span class="num">04</span><h2>Dossiers fonciers, jusqu'à l'ACD</h2></div>
+    <div class="grid2">
+      <div class="card">
+        <p class="cap">Terrains vendus, par étape du dossier d'arrêté de concession définitive <span class="note">situation au jour</span></p>
+        <div class="funnel" id="funnel"></div>
+      </div>
+      <div class="card">
+        <p class="cap">Pièces manquantes</p>
+        <div class="bars" id="pieces"></div>
+        <p class="cap cap2">Dossiers au guichet unique depuis plus de 90 jours</p>
+        <div class="tbl-wrap"><table class="tbl" id="t-guf"></table></div>
+      </div>
+    </div>
+    <p class="src">Étapes reprises du décret n° 2013-482 (procédure de l'ACD) et du parcours publié par le Guichet unique du foncier et de l'habitat. Depuis 2025, la demande d'ACD part de l'attestation de droit d'usage coutumier, qui remplace l'attestation villageoise.</p>
+  </section>
+
+  <section class="block" id="b-chantier">
+    <div class="bh"><span class="num">05</span><h2>Chantier Les Résidences Salomon</h2></div>
+    <div class="grid3" id="ch-k"></div>
+    <div class="grid2">
+      <div class="card">
+        <p class="cap">Avancement par lot de travaux <span class="leg"><i class="sw r"></i>Réel <i class="sw d"></i>Attendu à date</span></p>
+        <div class="seg"><button data-i="Immeuble A" class="on">Immeuble A</button><button data-i="Immeuble B">Immeuble B</button></div>
+        <div class="works" id="works"></div>
+      </div>
+      <div class="card">
+        <p class="cap">Lots de travaux en retard</p>
+        <ul class="late" id="late"></ul>
+        <p class="src">Bingerville, deux immeubles R+3 de 32 appartements chacun. Avancement pondéré par le poids de chaque lot de travaux.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="bh"><span class="num">06</span><h2>Gestion locative</h2></div>
+    <div class="grid3" id="loc-k"></div>
+    <div class="grid2">
+      <div class="card">
+        <p class="cap">Loyers et charges, juin à novembre 2026 <span class="leg"><i class="sw r"></i>Encaissé <i class="sw d"></i>Dû</span></p>
+        <div class="ch"><canvas id="c-loy"></canvas></div>
+      </div>
+      <div class="card">
+        <p class="cap">Locataires en retard <span class="note">indépendant des filtres</span></p>
+        <div class="tbl-wrap"><table class="tbl" id="t-loy"></table></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <img src="assets/logo.png" alt="" class="flogo">
+    <p><strong>Données d'exemple.</strong> Les noms des programmes, leurs localités et les superficies des lots d'Élibou et de Toumodi Gogahi sont ceux publiés par Open Eyes eBusiness. Les prix, acquéreurs, versements, dossiers fonciers, avancements de chantier, baux et loyers sont inventés pour illustrer le tableau et ne correspondent à aucune personne.</p>
+    <p class="small">Montants en francs CFA. Le jour du tableau réel, chaque chiffre vient du registre des lots, des échéanciers et du suivi de chantier tenus par l'équipe.</p>
+  </div>
+</footer>
+
+<script src="assets/chart.umd.min.js?v=4"></script>
+<script src="assets/app.js?v=20261117a"></script>
+</body>
+</html>
